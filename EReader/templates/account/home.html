@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block link %}
+	<link href="{% static 'account\css\home.css' %} " rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+	
+	<header>
+		<nav class='nav nav-pills'>
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand">EReader</a>
+				</div>
+				<div class="nav-items">		
+					<a href="" class='link'> Home </a>
+					<a href="" class='link'> Works </a>
+					<a href="" class='link'> About </a>
+					<a class='link' id='btn-sign'> Sign up </a>
+				</div>
+			</div>
+		</nav>						
+	</header>
+	
+	<div class='content'>
+		<div class='main'>
+			<div class='thumbnail'>
+				<img src="{% static 'account\img\img00.jpg' %}" />
+				<span class='bar'> Become the 2.0 Reader </span>
+			</div>
+		</div>
+		<aside class='menu pull-right'>
+			<div class='login'>
+				<form class='form'>
+					<input type=text placeholder='email address'/></br>
+					<input type=password placeholder='password'/>
+					<input type=submit value='Log In'/>
+				</form>
+			</div>
+			
+			<div class='whats'>
+				<div>
+					<span>What's EReader</span><br/>
+					<div>
+						EReader is a web application that helps people find documentation and posts of the community about differents subjects.
+						With EReader, you can be a reader as well as an author and share your knowledge.
+					</div>
+					</div>
+			</div>
+			
+			<div class='recents'>
+				<span class='head'> Recents Works </span>
+				<div class='post'>
+					<span class='header'><span class='author'><b>@Aine1000</b></span> Learn to code with Python </span>
+					<div class='summary'>
+						Lorep ipsum colocum bacum socum Lorep ipsum colocum bacum socum 
+					</div>
+				</div>
+				<div class='post'>
+					<span class='header'><span class='author'><b>@Lilavois</b></span> How to use Django </span>
+					<div class='summary'>
+						Lorep ipsum colocum bacum socum Lorep ipsum colocum bacum socum 
+					</div>
+				</div>
+			</div>
+			
+		</aside>
+		<div id='signup'>
+			<form class='form'>
+				<input type=text placeholder='email address'/></br>
+				<input type=text placeholder='username'/></br>
+				<input type=password placeholder='password'/>
+				<input type=submit value='Sign Up'/>
+			</form>
+		</div>
+		
+	</div>
+	
+{% endblock %}
+
+{% block script %}
+<script lang='js'>
+		
+	var change = (function (){
+		var signp = document.getElementById('signup');
+	
+		var pos = getComputedStyle(signp,null).left;
+	
+		if(pos == '-9999px'){
+			signp.style.left = '35%';
+		}else{
+			signp.style.left = '-9999px';
+		}
+	});
+	
+	var btn = document.getElementById('btn-sign');
+	btn.addEventListener('click',change,false);
+	
+</script>
+{% endblock %}

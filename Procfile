@@ -1,0 +1,1 @@
+web: gunicorn EReader.wsgi --log-file -
